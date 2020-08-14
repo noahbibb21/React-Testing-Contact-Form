@@ -14,11 +14,12 @@ const ContactForm = () => {
     <div className="App">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="firstName">First Name*</label>
+          <label id = "" htmlFor="firstName">First Name*</label>
           <input
             name="firstName"
             placeholder="Edd"
-            ref={register({ required: true, maxLength: 3 })}
+            aria-labelledby="firstName"
+            ref={register({ required: true, maxLength: 8 })}
           />
           {errors.firstName && (
             <p>Looks like there was an error: {errors.firstName.type}</p>
@@ -55,7 +56,7 @@ const ContactForm = () => {
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
-        <input type="submit" />
+        <input data-testid="submit" type="submit" />
       </form>
     </div>
   );
